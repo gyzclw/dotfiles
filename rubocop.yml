@@ -1,0 +1,8 @@
+require: rubocop-rspec
+Documentation:
+  Enabled: false
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+Metrics/LineLength:
+  Max: 99
+

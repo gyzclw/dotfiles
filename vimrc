@@ -5,29 +5,31 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+
 " support css word with -
 autocmd FileType css,scss,slim,html,eruby,coffee,javascript setlocal iskeyword+=-
 autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 "UI Config
 set gcr=a:block-blinkon0
 
-set number              " show line numbers
-set showcmd             " show command in bottom bar
+set      number              " show line numbers
+set      showcmd             " show command in bottom bar
 filetype indent on      " load filetype-specific indent files
-set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw only when we need to.
-set showmatch           " highlight matching [{()}]
+set      wildmenu            " visual autocomplete for command menu
+set      lazyredraw          " redraw only when we need to.
+set      showmatch           " highlight matching [{()}]
 
 "Searching
 
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+set      incsearch           " search as characters are entered
+set      hlsearch            " highlight matches
 nnoremap <leader><space> :nohlsearch<CR>
 "Folding
 
 " 基于缩进或语法进行代码折叠
 "set foldmethod=indent
-set foldmethod=syntax
+set      foldmethod=syntax
 " 启动 vim 时关闭折叠代码
 set nofoldenable
 "对齐
@@ -35,7 +37,7 @@ set smartindent
 set autoindent
 filetype plugin indent on
 
-"Movement  
+"Movement
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
@@ -47,7 +49,7 @@ if filereadable(expand("~/.vimrc.bundles"))
   endif
 
 "Leader Shortcuts
-let mapleader=","       " leader is comma
+let mapleader = "," " leader is comma
 " jk is escape
 inoremap jk <esc>
 " toggle gundo
@@ -61,7 +63,6 @@ let g:gundo_preview_height =20
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>a :Ag
 "Autogroup
 augroup configgroup
   autocmd!
@@ -96,7 +97,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
-let g:airline_theme="cool" 
+let g:airline_theme="cool"
 
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
@@ -156,7 +157,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>A :call RunAllSpecs()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " 代码块
 " 随 vim 自启动
@@ -208,4 +209,10 @@ map <Leader><Leader>k <Plug>(easymotion-k)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 " 重复上一次操作, 类似repeat插件, 很强大
 map <Leader><leader>. <Plug>(easymotion-repeat)
-
+ " EasyAlign 快速格式化
+ vmap <Leader>a <Plug>(EasyAlign)
+ nmap <Leader>a <Plug>(EasyAlign)
+ if !exists('g:easy_align_delimiters')
+     let g:easy_align_delimiters = {}
+   endif
+   let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }

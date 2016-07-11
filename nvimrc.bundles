@@ -1,0 +1,82 @@
+call plug#begin('~/.config/nvim/plugged')
+"主题
+Plug 'mhinz/vim-startify'
+Plug 'tomasr/molokai'
+Plug 'dracula/vim'
+function! DoRemote(arg)
+     UpdateRemotePlugins
+   endfunction
+if has('nvim')
+   "代码检查
+   Plug 'benekastah/neomake'
+   "elixir 语言
+   Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+   "补全插件
+
+   Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+   Plug 'mhartington/deoplete-typescript',{'for':'typescript'}
+else
+   "代码检查
+   Plug 'scrooloose/syntastic'
+   "补全插件
+   Plug 'Valloric/YouCompleteMe'
+endif
+
+"缩进提示线插件
+Plug 'nathanaelkane/vim-indent-guides'
+"elixir语言
+Plug 'elixir-lang/vim-elixir'
+Plug 'thinca/vim-ref'
+"ruby语言
+Plug 'vim-ruby/vim-ruby',{'for':['ruby','eruby']}
+Plug 'tpope/vim-rails',{'for':['ruby','haml','eruby']}
+Plug 'thoughtbot/vim-rspec',{'for':['ruby','eruby']}
+Plug 'tpope/vim-bundler',{'for':['ruby','eruby']}
+Plug 'tpope/vim-endwise',{'for':['ruby','eruby']}
+Plug 'ngmy/vim-rubocop',{'for':['ruby','eruby']}
+"markdown语言
+Plug 'tpope/vim-markdown',{'for':'markdown'}
+"javascript语言
+Plug 'pangloss/vim-javascript',{'for':['javascript','javascript.jsx']}
+Plug 'kchmck/vim-coffee-script',{ 'for': 'coffee' }
+Plug 'leafgarland/typescript-vim',{'for':'typescript'}
+
+
+"代码片段
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+"模糊搜索
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+"git 插件
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
+"轻量状态提示栏
+Plug 'itchyny/lightline.vim'
+"符号补全
+Plug 'tpope/vim-surround'
+"重复命令surround.vim,speeddating.vim,abolish.vim,unimpaired.vim,commentary.vim,vim-easyclip
+Plug 'tpope/vim-repeat'
+"快速对齐
+Plug 'junegunn/vim-easy-align'
+"快速查找／
+Plug 'Lokaltog/vim-easymotion'
+"导航栏
+Plug 'scrooloose/nerdtree'
+"undo tree
+Plug 'sjl/gundo.vim'
+"不同语言缩进操作
+Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+"快速注释
+Plug 'tpope/vim-commentary',        { 'on': '<Plug>Commentary' }
+Plug 'terryma/vim-multiple-cursors'
+"heroku.vim
+Plug 'tpope/vim-heroku'
+call plug#end()
